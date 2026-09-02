@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SpecSheet — Product Picks & Shorts</title>
+<title>Dealora — Product Picks & Shorts</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<noscript><style>body{opacity:1 !important;}</style></noscript>
 </head>
 <body>
 <div class="grid-bg"></div>
 
 <header>
-  <div class="logo">SPECSHEET <span class="tag">v1.0</span></div>
+  <div class="logo">DEALORA <span class="tag">v1.0</span></div>
   <nav>
     <a href="#picks">Picks</a>
     <a href="#shorts">Shorts</a>
@@ -21,23 +22,27 @@
   </nav>
 </header>
 
-<section class="hero">
+<section class="hero" id="hero">
   <div>
-    <span class="eyebrow">CH. 00 — REAL GEAR. REAL NUMBERS. NO BS.</span>
+    <!-- <span class="eyebrow">CH. 00 — REAL GEAR. REAL NUMBERS. NO BS.</span> -->
     <h1>Stop guessing.<br>Start <em>knowing.</em></h1>
-    <p>I test this stuff in my shorts before it ever lands here — real specs, honest verdicts, and a direct link the moment I'd actually buy it myself.</p>
+    <p id="heroTagline" class="hero-tagline">I test this stuff in my shorts before it ever lands here — real specs, honest verdicts, and a direct link the moment I'd actually buy it myself.</p>
     <div class="hero-ctas">
       <a href="#picks" class="btn btn-primary">View picks →</a>
       <a href="#shorts" class="btn btn-outline">Watch shorts</a>
     </div>
+    <div class="hero-stats" id="heroStats">
+      <div class="stat"><span class="stat-num" data-target="0">0</span><span class="stat-label">Products reviewed</span></div>
+      <div class="stat"><span class="stat-num" data-target="0">0</span><span class="stat-label">Shorts published</span></div>
+    </div>
   </div>
   <div class="schematic" id="heroCanvasWrap">
     <div class="emoji-cycle" id="emojiCycle">
-      <span class="cycle-emoji">🙃</span>
+      <img class="cycle-emoji" src="emojis/1.png" alt="emoji">
     </div>
-    <span class="callout c1">01 — MATERIAL</span>
+    <!-- <span class="callout c1">01 — MATERIAL</span>
     <span class="callout c2">02 — SPEC</span>
-    <span class="callout c3">03 — PRICE</span>
+    <span class="callout c3">03 — PRICE</span> -->
   </div>
 </section>
 
@@ -46,6 +51,14 @@
     <span class="num">01</span>
     <h2>Current picks</h2>
     <span class="desc">UPDATED WEEKLY</span>
+  </div>
+  <div class="product-controls">
+    <input type="text" id="productSearch" class="product-search" placeholder="Search products...">
+    <div class="price-slider-wrap">
+      <label for="priceSlider">Up to <span id="priceValueLabel">₹0</span></label>
+      <input type="range" id="priceSlider" min="59" max="1000" step="1" class="price-slider">
+    </div>
+    <div class="filter-pills" id="filterPills"></div>
   </div>
   <div class="products" id="productsContainer">
     <!-- Cards are generated automatically by products.js -->
@@ -56,7 +69,7 @@
   <div class="section-head">
     <span class="num">02</span>
     <h2>Latest shorts</h2>
-    <span class="desc">@YOURCHANNEL</span>
+    <!-- <span class="desc">@YOURCHANNEL</span> -->
   </div>
   <div class="shorts-grid" id="shortsContainer">
     <!-- Cards are generated automatically by shorts.js -->
@@ -68,17 +81,20 @@
     <span class="num">03</span>
     <h2>About this page</h2>
   </div>
-  <p style="max-width:60ch; color:#B8BEC4;">Every product here earned its spot the hard way — I use it, film it, and tear apart the spec sheet before it ever shows up on this page. If it's not worth your money, it doesn't make the cut.</p>
+  <p style="max-width:60ch; color:#B8BEC4;">Every product here earned its spot the hard way I use it, film it, and tear apart the spec sheet before it ever shows up on this page. If it's not worth your money, it doesn't make the cut.</p>
 </section>
 
 <footer>
-  <span class="disclosure">Disclosure: As an Amazon Associate, this site earns from qualifying purchases made through links above, at no extra cost to you.</span>
-  <span>© 2026 SpecSheet</span>
+  <span class="disclosure">Discover better products, make smarter choices.
+We research and highlight useful, reliable, and value-for-money products to help you find the right choice without the hassle.
+</span>
+  <span>© 2026 Dealora</span>
 </footer>
 
 <script src="products.js"></script>
 <script src="shorts.js"></script>
 <script src="scroll-effects.js"></script>
 <script src="effects.js"></script>
+<script src="chatbot.js"></script>
 </body>
 </html>
