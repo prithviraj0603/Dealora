@@ -19,7 +19,8 @@
    ========================================================= */
 const SHORTS = [
   { title: "Laptop Heat Ho Raha Hai? 🔥 Try This 9-Fan Cooling Pad! ❄️🎮", youtubeUrl: "https://youtube.com/shorts/ucy_8CI9c3Y?si=iV68_ZGj_cpwFRgI" },
-  { title: "Ambrane AeroFlow 01 Air Blower Review 🔥 | 110,000 RPM Powerful Air Duster", youtubeUrl: "https://youtube.com/shorts/6k1okbXufdc?si=xxVYc4_XgAR1SCU6" }
+  { title: "Ambrane AeroFlow 01 Air Blower Review 🔥 | 110,000 RPM Powerful Air Duster", youtubeUrl: "https://youtube.com/shorts/6k1okbXufdc?si=xxVYc4_XgAR1SCU6" },
+  { title: "Top 5 Powerful Laptops in 2026 💻👑 Which One is No.1?", youtubeUrl: "https://youtube.com/shorts/KjVtsGQz8eA?si=kE-h9fR74TPOPqak" }
 ];
 
 // Pulls the video ID out of any common YouTube URL format
