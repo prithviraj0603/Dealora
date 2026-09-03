@@ -218,8 +218,117 @@
   about: "A compact customizable control pad with six LCD keys for one-tap access to streaming, media, audio, and productivity actions. The Stream Deck Mini supports Multi Actions, folders, profiles, custom icons and animated GIFs, making it easy to personalize your workflow.",
   price: "₹7,891",
   link: "https://link.amazon/B06RFGjMF"
+},
+{
+  category: "Electronics Gadgets",
+  name: "GRENARO S12 Wireless Microphone",
+  image: "https://m.media-amazon.com/images/I/71dhDqkgHPL._SL1500_.jpg",
+  specs: [
+    ["Modes: ", "Original Sound, Noise Reduction, Reverb, and Mute"],
+    ["Noise Reduction: ", "Adjustable 3-level noise reduction for different environments"],
+    ["Filter Heads: ", "Sponge filter head and windproof plush filter head"],
+    ["Battery: ", "65mAh rechargeable battery with up to 6 hours of working time"],
+    ["Range: ", "Up to 98ft (30 meters) wireless receiving distance"],
+    ["Compatibility: ", "Android devices, iPhone 15, iPad 15 and above"],
+    ["Warranty: ", "1-year warranty with 24/7 dedicated support"]
+  ],
+  rating: 4,
+  about: "A versatile wireless microphone designed for YouTubers, vloggers, influencers, and content creators. The GRENARO S12 features four audio modes, adjustable 3-level noise reduction, dual filter heads for indoor and outdoor recording, up to 6 hours of battery life, and a 30-meter wireless range. It is compatible with Android devices, iPhone 15, iPad 15 and above, making it suitable for YouTube, Facebook, Instagram, vlogging, and live streaming.",
+  price: "₹785",
+  link: "https://link.amazon/B0erWCyB5"
+},
+{
+  category: "Computer Accessories",
+  name: "ZEBRONICS Companion 301 Keyboard + Mouse",
+  image: "https://m.media-amazon.com/images/I/61eYUYAexeL._SL1500_.jpg",
+  specs: [
+    ["Connectivity: ", "2.4GHz wireless connectivity with USB nano receiver"],
+    ["Keyboard: ", "104 keys with rounded retro-style keys and 12 integrated multimedia keys"],
+    ["Mouse: ", "1600 DPI high-precision optical sensor with 3 buttons"],
+    ["Features: ", "Power saving mode, all keys lock function, and retractable stand"],
+    ["Design: ", "Retro style with UV-coated rounded keycaps"],
+    ["Rupee Key: ", "Dedicated ₹ Rupee key"],
+    ["Wireless Range: ", "Up to 10 meters without obstacles"],
+    ["Compatible Devices: ", "Laptop and personal computer"]
+  ],
+  rating: 4,
+  about: "A stylish wireless keyboard and mouse combo featuring a retro design, rounded keys, 2.4GHz wireless connectivity, and a high-precision 1600 DPI optical mouse. The Companion 301 includes 104 keyboard keys, 12 multimedia keys, a dedicated Rupee key, power saving mode, a retractable stand, and a nano receiver for convenient wireless use.",
+  price: "₹1,099",
+  link: "https://link.amazon/B0ezmEuGv"
+},
+{
+  category: "Computer Accessories",
+  name: "Portronics Mport 8 USB-C Hub",
+  image: "https://m.media-amazon.com/images/I/71A1ZR39i4L._SL1500_.jpg",
+  specs: [
+    ["Ports: ", "8-in-1 USB-C hub with HDMI, Ethernet, USB 3.0, USB 2.0, SD, microSD, and Type-C PD ports"],
+    ["HDMI: ", "4K video output at up to 30Hz for monitors and projectors"],
+    ["Ethernet: ", "RJ45 Ethernet port with speeds up to 100 Mbps"],
+    ["USB: ", "USB 3.0 and USB 2.0 ports with transfer speeds up to 5 Gbps"],
+    ["Card Readers: ", "Dedicated SD and microSD card slots for quick data access"],
+    ["Type-C: ", "Type-C PD charging and data transfer support"],
+    ["Design: ", "Sleek, durable metal body with a lightweight and portable design"]
+  ],
+  rating: 4.2,
+  about: "A versatile 8-in-1 USB-C hub designed to expand your laptop or compatible device with essential connectivity options. The Portronics Mport 8 features 4K HDMI output, 100 Mbps Ethernet, USB 3.0 and USB 2.0 ports, SD and microSD card readers, and Type-C PD charging and data transfer in a compact metal design.",
+  price: "₹1,005",
+  link: "https://link.amazon/B0gh9HTaF"
+},
+{
+  category: "Computer Accessories",
+  name: "SPEED RGB Gaming Mouse Pad",
+  image: "https://m.media-amazon.com/images/I/61VFLViiJwL._SL1500_.jpg",
+  specs: [
+    ["Material: ", "Soft ultra-fine fiber surface with high-elasticity rubber base"],
+    ["Size: ", "30 x 78 cm, providing ample space for keyboard and mouse"],
+    ["Surface: ", "Micro-textured, smooth, water-resistant surface for precise mouse control"],
+    ["RGB Lighting: ", "Colorful RGB lighting with multiple backlight modes and one-button control"],
+    ["Base: ", "Non-slip rubber base for stable positioning on the desk"],
+    ["Mouse Control: ", "Smooth surface designed for accurate and precise navigation"],
+    ["Design: ", "Large, comfortable, rollable design for easy storage"],
+    ["Weight: ", "600 g"]
+  ],
+  rating: 4.5,
+  about: "A large RGB gaming mouse pad designed for precise mouse control and an enhanced gaming setup. The SPEED RGB Gaming Mouse Pad features a smooth micro-textured surface, water-resistant coating, non-slip rubber base, and colorful USB-powered RGB lighting with multiple lighting modes. Its 78 x 30 cm size provides plenty of room for both keyboard and mouse.",
+  price: "₹898",
+  link: "https://link.amazon/B0ajItu4o"
+},
+{
+  category: "Computer Accessories",
+  name: "Bonkaso Laptop Cooling Pad",
+  image: "https://m.media-amazon.com/images/I/81Fn6vJ5g4L._SL1500_.jpg",
+  specs: [
+    ["Cooling System: ", "4-fan cooling system with two large fans and two high-speed fans up to 1900 RPM"],
+    ["LCD Display: ", "Smart LCD display showing selected fan speed in real time"],
+    ["Fan Control: ", "Touch controls with quiet 2-fan mode and powerful 4-fan cooling mode"],
+    ["Height Adjustment: ", "8-level ergonomic height adjustment for comfortable viewing and typing"],
+    ["USB Ports: ", "Dual USB connectivity with one port for power and one for compatible accessories"],
+    ["Noise Level: ", "Ultra-low 21 dBA operation for quieter cooling"],
+    ["Build: ", "Durable iron mesh surface for improved ventilation and stable laptop support"],
+    ["Compatibility: ", "Supports laptops up to 17 inches"],
+    ["Portability: ", "Slim 25 mm profile and lightweight 1.05 kg construction"]
+  ],
+  rating: 5,
+  about: "A powerful and portable laptop cooling pad featuring a 4-fan cooling system with speeds up to 1900 RPM, smart LCD fan-speed display, and convenient touch controls. The Bonkaso cooling pad offers 8-level height adjustment, dual USB connectivity, a durable iron mesh surface, quiet 21 dBA operation, and support for laptops up to 17 inches.",
+  price: "₹1,099",
+  link: "https://link.amazon/B04a1R9sd"
+},
+{
+  category: "Computer Accessories",
+  name: "Glixon X8 Turbo Air Blower",
+  image: "https://m.media-amazon.com/images/I/512klrIVQaL._SL1500_.jpg",
+  specs: [
+    ["Airflow: ", "High-speed powerful airflow for efficient dust removal"],
+    ["LED Light: ", "Integrated LED work light for cleaning hard-to-see areas"],
+    ["Battery: ", "USB Type-C rechargeable battery for cordless operation"],
+    ["Design: ", "Compact, lightweight handheld design for easy handling and storage"],
+    ["Applications: ", "Suitable for laptops, desktops, keyboards, cameras, car interiors, office equipment, home appliances, crafts, and DIY projects"]
+  ],
+  rating: 5,
+  about: "A compact high-speed air blower designed for convenient dust and debris removal from electronics, vehicles, and household equipment. The Glixon X8 Turbo Air Blower features powerful airflow, an integrated LED work light, USB Type-C rechargeable battery, and a lightweight handheld design suitable for both indoor and outdoor cleaning.",
+  price: "₹889",
+  link: "https://link.amazon/B0dvOMc9D"
 }
-  
 ];
 
 /* colored accent per category — add a new category here and it gets a
