@@ -331,6 +331,28 @@
 }
 ];
 
+/* =========================================================
+   DEAL OF THE DAY — optional, edit here too
+   List the exact `name` of any product above that's eligible
+   to be featured as a "Deal of the Day". One (or a few, see
+   DEAL_OF_DAY_COUNT below) is chosen automatically and rotates
+   once per day on its own — you never have to touch this again
+   unless you want to change which products are in the running.
+
+   Leave the list empty ( [] ) to hide the Deal of the Day
+   section entirely.
+   ========================================================= */
+const DEAL_OF_DAY_POOL = [
+  "Lenovo Legion Pro 7",
+  "Elgato Stream Deck Mini",
+  "Bonkaso Laptop Cooling Pad",
+  "SPEED RGB Gaming Mouse Pad"
+];
+
+/* How many deals to feature at once each day. 1 = a single big
+   standout card. 2 or 3 = a small rotating set shown side by side. */
+const DEAL_OF_DAY_COUNT = 1;
+
 /* colored accent per category — add a new category here and it gets a
    consistent color automatically via the fallback hash below */
 const CATEGORY_COLORS = {
@@ -380,6 +402,57 @@ function teaserCard(p){
   `;
 }
 
+/* =========================================================
+   Shared product card builder — used by the main Picks grid,
+   the "Find Your Pick" quiz results, and the Saved products
+   view, so every card looks and behaves identically no matter
+   where it's rendered.
+   ========================================================= */
+function productCardHTML(p){
+  if (isLocked(p)) return teaserCard(p);
+
+  const topRating = Math.max(...PRODUCTS.map(prod => prod.rating));
+  const isFeatured = p.rating === topRating;
+  const accent = categoryColor(p.category);
+  const isCompareSel = (typeof isCompareSelected === 'function') && isCompareSelected(p.name);
+  const isSavedItem = (typeof isSaved === 'function') && isSaved(p.name);
+  const safeName = p.name.replace(/"/g, '&quot;');
+
+  return `
+    <div class="card${isFeatured ? ' featured' : ''}" style="--accent:${accent}">
+      ${isFeatured ? '<span class="featured-badge">Top Rated</span>' : ''}
+      <button type="button" class="wishlist-btn${isSavedItem ? ' saved' : ''}" data-name="${safeName}" aria-pressed="${isSavedItem}" aria-label="${isSavedItem ? 'Remove from saved' : 'Save this product'}">
+        <span class="wishlist-icon">${isSavedItem ? '♥' : '♡'}</span>
+      </button>
+      <label class="compare-toggle${isCompareSel ? ' checked' : ''}" data-name="${safeName}">
+        <input type="checkbox" ${isCompareSel ? 'checked' : ''}>
+        <span>Compare</span>
+      </label>
+      <div class="card-media">
+        ${p.image
+          ? `<div class="img-shimmer"></div><img src="${p.image}" alt="${p.name}" loading="lazy" onload="this.previousElementSibling.remove()" onerror="this.previousElementSibling.remove(); this.replaceWith(document.createTextNode('IMAGE — SWAP ME'))">`
+          : 'IMAGE — SWAP ME'}
+      </div>
+      <div class="card-body">
+        <span class="card-tag" style="color:${accent}">${p.category}</span>
+        <h3>${p.name}</h3>
+        <div class="specs">
+          ${p.specs.map(([label, value]) => `<div><span>${label}</span><span>${value}</span></div>`).join('')}
+        </div>
+        <div class="rating">
+          <span class="stars">${starRow(p.rating)}</span>
+          <span>${p.rating}/5</span>
+        </div>
+        <p class="about">${p.about}</p>
+        <div class="card-footer">
+          <div class="price">${p.price}<small>on Amazon</small></div>
+          <a href="${p.link}" class="buy">View →</a>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 /* tracks each product's locked/unlocked state so we only re-render
    the grid at the exact moment something actually unlocks, instead
    of every second (which would interrupt search typing, etc.) */
@@ -421,11 +494,20 @@ let activeCategory = 'All';
 let searchQuery = '';
 let priceMax = null; // set on init to the highest product price
 
+function wireProductCardEvents(container){
+  if (window.initCardTilt) window.initCardTilt();
+  container.querySelectorAll('.compare-toggle input').forEach(input => {
+    input.addEventListener('change', (e) => {
+      const label = e.target.closest('.compare-toggle');
+      const name = label.dataset.name;
+      if (window.toggleCompare) window.toggleCompare(name, e.target.checked);
+    });
+  });
+}
+
 function renderProducts(){
   const container = document.getElementById('productsContainer');
   if(!container) return;
-
-  const topRating = Math.max(...PRODUCTS.map(p => p.rating));
 
   const filtered = PRODUCTS.filter(p => {
     const matchesCategory = activeCategory === 'All' || p.category === activeCategory;
@@ -439,40 +521,12 @@ function renderProducts(){
     return;
   }
 
-  container.innerHTML = filtered.map(p => {
-    if (isLocked(p)) return teaserCard(p);
+  container.innerHTML = filtered.map(p => productCardHTML(p)).join('');
 
-    const isFeatured = p.rating === topRating;
-    const accent = categoryColor(p.category);
-    return `
-    <div class="card${isFeatured ? ' featured' : ''}" style="--accent:${accent}">
-      ${isFeatured ? '<span class="featured-badge">Top Rated</span>' : ''}
-      <div class="card-media">
-        ${p.image
-          ? `<div class="img-shimmer"></div><img src="${p.image}" alt="${p.name}" loading="lazy" onload="this.previousElementSibling.remove()" onerror="this.previousElementSibling.remove(); this.replaceWith(document.createTextNode('IMAGE — SWAP ME'))">`
-          : 'IMAGE — SWAP ME'}
-      </div>
-      <div class="card-body">
-        <span class="card-tag" style="color:${accent}">${p.category}</span>
-        <h3>${p.name}</h3>
-        <div class="specs">
-          ${p.specs.map(([label, value]) => `<div><span>${label}</span><span>${value}</span></div>`).join('')}
-        </div>
-        <div class="rating">
-          <span class="stars">${starRow(p.rating)}</span>
-          <span>${p.rating}/5</span>
-        </div>
-        <p class="about">${p.about}</p>
-        <div class="card-footer">
-          <div class="price">${p.price}<small>on Amazon</small></div>
-          <a href="${p.link}" class="buy">View →</a>
-        </div>
-      </div>
-    </div>
-  `;
-  }).join('');
-
-  if (window.initCardTilt) window.initCardTilt();
+  // wire up compare checkboxes (and card tilt) on the cards we just rendered.
+  // Wishlist heart clicks are handled globally by wishlist.js, so nothing
+  // to wire here for those.
+  wireProductCardEvents(container);
 }
 
 function setupProductControls(){
