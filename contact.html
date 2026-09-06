@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Dealora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<noscript><style>body{opacity:1 !important;}</style></noscript>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ELYX1XEXM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ELYX1XEXM');
+</script>
+
+<style>
+  .legal-wrap{ max-width:760px; margin:0 auto; padding:64px 24px 96px; }
+  .legal-wrap h1{ font-family:var(--display); font-weight:700; font-size:32px; color:var(--text); letter-spacing:-0.02em; margin-bottom:8px; }
+  .legal-updated{ font-family:var(--mono); font-size:12.5px; color:var(--text-faint); margin-bottom:40px; display:block; }
+  .legal-wrap p{ font-family:var(--body); font-size:14.5px; color:var(--text-muted); line-height:1.7; margin-bottom:12px; }
+  .legal-wrap a{ color:var(--blueprint); text-decoration:underline; text-underline-offset:2px; transition:color .2s ease; }
+  .legal-wrap a:hover{ color:var(--blueprint-light); }
+  .legal-note{
+    background:var(--bg-card); border:1px solid var(--line); border-radius:4px;
+    padding:14px 16px; font-family:var(--body); font-size:13px; color:var(--text-faint); margin-top:48px;
+  }
+  .back-link{ display:inline-block; margin-bottom:24px; font-family:var(--mono); font-size:13.5px; color:var(--text-muted); text-decoration:none; transition:color .2s ease; }
+  .back-link:hover{ color:var(--text); }
+
+  .contact-card{
+    border:1px solid var(--line); border-radius:4px;
+    background:var(--bg-card); padding:28px; margin-top:24px;
+  }
+  .contact-row{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:14px 0; border-bottom:1px solid var(--line);
+  }
+  .contact-row:last-child{ border-bottom:none; }
+  .contact-label{ font-family:var(--mono); font-size:12px; color:var(--text-faint); text-transform:uppercase; letter-spacing:.04em; }
+  .contact-value{ font-family:var(--body); font-size:14.5px; color:var(--text); }
+  .contact-value a{ color:var(--text); text-decoration:none; border-bottom:1px solid var(--line); transition:color .2s ease, border-color .2s ease; }
+  .contact-value a:hover{ border-color:var(--amber); color:var(--amber); }
+
+  .contact-form{ display:flex; flex-direction:column; gap:14px; margin-top:24px; }
+  .contact-form label{ font-family:var(--body); font-size:13px; color:var(--text-muted); margin-bottom:6px; display:block; }
+  .contact-form input, .contact-form textarea{
+    width:100%; background:var(--bg-card-2); border:1px solid var(--line); color:var(--text);
+    padding:11px 14px; border-radius:4px; font-family:var(--body); font-size:14px; transition:border-color .2s ease;
+  }
+  .contact-form input:focus, .contact-form textarea:focus{ outline:none; border-color:var(--blueprint); }
+  .contact-form textarea{ min-height:120px; resize:vertical; }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <a href="index.html" class="logo">DEALORA <span class="tag">v1.0</span></a>
+</header>
+
+<main class="legal-wrap">
+  <a href="index.html" class="back-link">← Back to Dealora</a>
+
+  <h1>Contact</h1>
+  <span class="legal-updated">Questions, corrections, or product suggestions — reach out below.</span>
+
+  <p>Whether you spotted something inaccurate, have a product you think deserves a spot on the Picks page, or just want to say hi — this is the place.</p>
+
+  <div class="contact-card">
+    <div class="contact-row">
+      <span class="contact-label">Email</span>
+      <span class="contact-value"><a href="mailto:rajprithvi0603@gmail.com">rajprithvi0603@gmail.com</a></span>
+    </div>
+    <div class="contact-row">
+      <span class="contact-label">YouTube</span>
+      <span class="contact-value"><a href="https://www.youtube.com/@Prisin-p8g" target="_blank" rel="noopener">rajprithvi0603</a></span>
+    </div>
+    <div class="contact-row">
+      <span class="contact-label">Response time</span>
+      <span class="contact-value">Usually within 2–3 days</span>
+    </div>
+  </div>
+
+  <!--
+    NOTE: this form does not send anywhere on its own — plain static
+    HTML/JS has no server to receive submissions. The mailto button
+    below is the immediate, zero-setup option (opens the visitor's own
+    email app, pre-filled). If you'd rather have an actual in-page form
+    that emails you directly, sign up for a free plan on a form backend
+    like Formspree or Web3Forms, then swap the <form> tag's "action"
+    below to the endpoint they give you — no other code changes needed.
+  -->
+  <form class="contact-form" onsubmit="event.preventDefault(); window.location.href='mailto:rajprithvi0603@gmail.com?subject=' + encodeURIComponent('Dealora contact: ' + this.name.value) + '&body=' + encodeURIComponent(this.message.value + '\n\nFrom: ' + this.name.value + ' (' + this.email.value + ')');">
+    <div>
+      <label for="cName">Name</label>
+      <input type="text" id="cName" name="name" required>
+    </div>
+    <div>
+      <label for="cEmail">Email</label>
+      <input type="email" id="cEmail" name="email" required>
+    </div>
+    <div>
+      <label for="cMessage">Message</label>
+      <textarea id="cMessage" name="message" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send message →</button>
+  </form>
+
+  
+</main>
+
+<footer>
+  <span class="disclosure">Discover better products, make smarter choices.
+We research and highlight useful, reliable, and value-for-money products to help you find the right choice without the hassle.
+</span>
+ 
+  <span>© 2026 Dealora</span>
+</footer>
+
+<script>
+  // index.html's effects.js is what adds this class there; this page
+  // doesn't load that script, so it's done here instead — without it
+  // the body stays at opacity:0 forever (see style.css) and the page
+  // looks completely blank even though everything renders correctly.
+  document.body.classList.add('page-loaded');
+</script>
+</body>
+</html>
