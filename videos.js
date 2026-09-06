@@ -15,7 +15,9 @@
    ========================================================= */
 const VIDEOS = [
   { youtubeId: "ZBgwB89zzdQ", title: "🔥 TOP 5 MOST EXPENSIVE & POWERFUL GAMING LAPTOPS IN 2026 ", featured: false, products: [] },
-  { youtubeId: "1Ie5D4BVtRc", title: "🔥 7 TECH GADGETS UNDER ₹999 YOU NEED TO SEE! 🤯", featured: false, products: [] }
+  { youtubeId: "1Ie5D4BVtRc", title: "🔥 7 TECH GADGETS UNDER ₹999 YOU NEED TO SEE! 🤯", featured: false, products: [] },
+   { youtubeId: "JAhbgEmimCU", title: "5 COOL Gadgets You NEED in 2026! 🤯🔥", featured: false, products: [] }
+
 ];
 
 function slugify(str){
