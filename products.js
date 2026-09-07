@@ -328,7 +328,58 @@
   about: "A compact high-speed air blower designed for convenient dust and debris removal from electronics, vehicles, and household equipment. The Glixon X8 Turbo Air Blower features powerful airflow, an integrated LED work light, USB Type-C rechargeable battery, and a lightweight handheld design suitable for both indoor and outdoor cleaning.",
   price: "₹889",
   link: "https://link.amazon/B0dvOMc9D"
+},
+
+{
+  category: "Gifts",
+  name: "Retro Sound Mini Voice Recorder Keychain",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T2/images/I/71uGLLAKKtL._SX679_.jpg",
+  specs: [
+    ["Recording: ", "Records short voice messages or sounds up to 15 seconds"],
+    ["Playback: ", "Built-in playback lets you listen to your recorded audio directly from the keychain"],
+    ["Design: ", "Compact keyring design that can be attached to bags, backpacks, purses, pencil cases, or keys"],
+    ["Style: ", "Retro cassette-style design with detailed reel graphics and vintage appeal"],
+    ["Usage: ", "Simple recording and playback for quick notes, greetings, fun audio clips, and everyday carry"]
+  ],
+  rating: 4.2,
+  about: "A compact retro-style mini voice recorder designed as a convenient keychain. It can record short voice messages or sounds for up to 15 seconds and play them back directly from the device. Its cassette-inspired design makes it a fun accessory for bags, backpacks, pencil cases, and key sets.",
+  price: "₹249",
+  link: "https://link.amazon/B04Dhldzg"
+},
+{
+  category: "Home Decor",
+  name: "3D Saturn Crystal Ball Night Lamp",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T2/images/I/51CWInn1xrL._SX679_.jpg",
+  specs: [
+    ["Design: ", "3D Saturn planet design creates an attractive glowing decorative display"],
+    ["Lighting: ", "Colourful LED light provides a soft visual effect for bedrooms, study areas, and decor corners"],
+    ["Base: ", "Compact 2.4-inch wooden base supports the crystal ball and complements modern room decor"],
+    ["Power: ", "Corded table lamp design suitable for bedside tables, desks, shelves, and display areas"],
+    ["Usage: ", "Suitable for home decoration and gifting for birthdays, teenagers, boys, girls, space lovers, and festive occasions"]
+  ],
+  rating: 4,
+  about: "A decorative 3D Saturn crystal ball night lamp designed to create an attractive glowing display. It features colourful LED lighting, a compact 2.4-inch wooden base, and a corded table lamp design suitable for bedrooms, study areas, desks, shelves, and other display spaces. A fun choice for space lovers and gifting occasions.",
+  price: "₹189",
+  link: "https://link.amazon/B03ARtrPB"
+},
+{
+  category: "Digital Alarm Clocks",
+  name: "RGB Aura Digital Alarm Clock",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T2/images/I/61jAO6BC3nL._SL1500_.jpg",
+  specs: [
+    ["Display: ", "Multicolored LED display adds vibrant visual appeal to your desk or nightstand"],
+    ["Power: ", "Battery-powered design operates with 3 AAA batteries (not included) for flexible placement"],
+    ["Dimensions: ", "Compact 7.5 x 7.5 x 7.5 cm size saves desk space and makes it convenient for travel"],
+    ["Functions: ", "Easy-to-use buttons for setting alarms, changing LED colors, and adjusting brightness"],
+    ["Alarm: ", "Alarm function includes soothing music options and a snooze feature for convenient wake-ups"],
+    ["Gifting: ", "Suitable for personal use, kids, birthdays, and corporate gifting with customizable stickers or logos"]
+  ],
+  rating: 4.5,
+  about: "A compact RGB digital desk alarm clock designed to combine practical timekeeping with colourful LED lighting. It features adjustable LED colours and brightness, easy alarm controls, soothing music options, and a snooze function. Powered by 3 AAA batteries, its compact 7.5 x 7.5 x 7.5 cm design is ideal for desks, nightstands, travel, and gifting.",
+  price: "₹309",
+  link: "https://link.amazon/B06MNC8eb"
 }
+
 ];
 
 /* =========================================================
