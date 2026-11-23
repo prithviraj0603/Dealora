@@ -291,11 +291,12 @@
   ];
 
   var QUICK_REPLIES = [
-    'What sections does this site have?',
-    'How do I filter products?',
-    'Tell me about a specific product',
-    'How do affiliate links work?',
-    'Where can I watch your shorts?'
+    "🔥 What's today's top deal?",
+    "💻 Best gaming laptop?",
+    "❄️ Best cooling pad?",
+    "⭐ Highest rated products?",
+    "💰 Any picks under ₹1,000?",
+    "🛒 How do affiliate links work?"
   ];
 
   /* ---------------------------------------------------------
@@ -477,8 +478,8 @@
     panel.innerHTML =
       '<div class="ss-chat-header">' +
       '  <div class="ss-chat-header-text">' +
-      '    <div class="ss-title">SPECSHEET BOT</div>' +
-      '    <div class="ss-subtitle">USUALLY ANSWERS INSTANTLY</div>' +
+      '    <div class="ss-title">DEALORA AI BOT</div>' +
+      '    <div class="ss-subtitle">\u25cf ONLINE \u2022 INSTANT DEALS & SPECS</div>' +
       '  </div>' +
       '  <button class="ss-chat-close" aria-label="Close chat">\u2715</button>' +
       '</div>' +
