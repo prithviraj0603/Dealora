@@ -43,11 +43,11 @@ function getYouTubeId(url){
 function renderShorts(){
   const container = document.getElementById('shortsContainer');
   if(!container) return;
-  container.innerHTML = SHORTS.map(s => {
+  container.innerHTML = SHORTS.map((s, index) => {
     const id = getYouTubeId(s.youtubeUrl);
     const thumb = id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : '';
     return `
-      <a class="short" href="${s.youtubeUrl}" target="_blank" rel="noopener"
+      <a class="short" href="${s.youtubeUrl}" data-index="${index}" data-youtube-id="${id}"
          style="${thumb ? `background-image:url('${thumb}');background-size:cover;background-position:center;` : ''}">
         <div class="play">▶</div>
         <span>${s.title}</span>
