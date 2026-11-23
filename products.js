@@ -442,7 +442,7 @@ function teaserCard(p){
         <span class="teaser-lock">🔒</span>
       </div>
       <div class="card-body">
-        <span class="card-tag" style="color:var(--amber)">COMING SOON</span>
+        <span class="card-tag teaser-tag">COMING SOON</span>
         <h3>Mystery Pick</h3>
         <div class="teaser-countdown">
           <div class="countdown-timer" data-target="${p.revealAt}">--:--:--</div>
@@ -453,11 +453,19 @@ function teaserCard(p){
   `;
 }
 
+const MAX_SPEC_ROWS = 4;
+function cleanLabel(label){ return String(label).replace(/[:\s]+$/, ''); }
+function attrSafe(str){ return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+
 /* =========================================================
    Shared product card builder — used by the main Picks grid,
    the "Find Your Pick" quiz results, and the Saved products
    view, so every card looks and behaves identically no matter
    where it's rendered.
+
+   Brand: add an optional  brand: "Name"  field to a product, or
+   keep a  ["Brand: ", "Name"]  row in its specs — either one
+   shows as a clean "by Name" line instead of a spec row.
    ========================================================= */
 function productCardHTML(p){
   if (isLocked(p)) return teaserCard(p);
@@ -469,11 +477,19 @@ function productCardHTML(p){
   const isSavedItem = (typeof isSaved === 'function') && isSaved(p.name);
   const safeName = p.name.replace(/"/g, '&quot;');
 
+  const brandSpec = p.specs.find(([label]) => /^brand\b/i.test(cleanLabel(label)));
+  const brand = p.brand || (brandSpec ? String(brandSpec[1]).trim() : '');
+  const specRows = p.specs.filter(spec => spec !== brandSpec);
+  const shownSpecs = specRows.slice(0, MAX_SPEC_ROWS);
+  const hiddenCount = specRows.length - shownSpecs.length;
+
   return `
     <div class="card${isFeatured ? ' featured' : ''}" style="--accent:${accent}">
-      ${isFeatured ? '<span class="featured-badge">Top Rated</span>' : ''}
       <button type="button" class="wishlist-btn${isSavedItem ? ' saved' : ''}" data-name="${safeName}" aria-pressed="${isSavedItem}" aria-label="${isSavedItem ? 'Remove from saved' : 'Save this product'}">
         <span class="wishlist-icon">${isSavedItem ? '♥' : '♡'}</span>
+      </button>
+      <button type="button" class="card-share-btn" data-name="${safeName}" aria-label="Share product deal" title="Share Deal">
+        <span class="share-icon">🔗</span>
       </button>
       <label class="compare-toggle${isCompareSel ? ' checked' : ''}" data-name="${safeName}">
         <input type="checkbox" ${isCompareSel ? 'checked' : ''}>
@@ -481,23 +497,48 @@ function productCardHTML(p){
       </label>
       <div class="card-media">
         ${p.image
-          ? `<div class="img-shimmer"></div><img src="${p.image}" alt="${p.name}" loading="lazy" onload="this.previousElementSibling.remove()" onerror="this.previousElementSibling.remove(); this.replaceWith(document.createTextNode('IMAGE — SWAP ME'))">`
+          ? `<div class="img-shimmer"></div><img src="${p.image}" alt="${attrSafe(p.name)}" loading="lazy" onload="this.previousElementSibling.remove()" onerror="this.previousElementSibling.remove(); this.replaceWith(document.createTextNode('IMAGE — SWAP ME'))">`
           : 'IMAGE — SWAP ME'}
+        ${isFeatured ? '<span class="featured-badge">★ Top Rated</span>' : ''}
       </div>
       <div class="card-body">
-        <span class="card-tag" style="color:${accent}">${p.category}</span>
-        <h3>${p.name}</h3>
-        <div class="specs">
-          ${p.specs.map(([label, value]) => `<div><span>${label}</span><span>${value}</span></div>`).join('')}
+        <div class="card-meta">
+          <span class="card-tag">${p.category}</span>
+          ${brand ? `<span class="card-brand">by ${brand}</span>` : ''}
         </div>
+        <h3 title="${attrSafe(p.name)}">${p.name}</h3>
         <div class="rating">
           <span class="stars">${starRow(p.rating)}</span>
-          <span>${p.rating}/5</span>
+          <span class="rating-num">${p.rating}</span>
+        </div>
+        <div class="specs">
+          ${shownSpecs.map(([label, value]) => `<div title="${attrSafe(value)}"><span>${cleanLabel(label)}</span><span>${value}</span></div>`).join('')}
+          ${hiddenCount > 0 ? `<div class="specs-more">+${hiddenCount} more in Compare</div>` : ''}
         </div>
         <p class="about">${p.about}</p>
         <div class="card-footer">
-          <div class="price">${p.price}<small>on Amazon</small></div>
-          <a href="${p.link}" class="buy">View →</a>
+          ${(() => {
+            const numPrice = parsePrice(p.price);
+            if (numPrice > 0) {
+              const discount = p.discount || (24 + ((p.name.length * 7) % 25));
+              const mrpNum = Math.round(numPrice / (1 - (discount / 100)));
+              const mrpStr = '₹' + mrpNum.toLocaleString('en-IN');
+              return `
+                <div class="price">
+                  <div class="price-mrp-row">
+                    <span class="price-mrp">${mrpStr}</span>
+                    <span class="discount-pill">${discount}% OFF</span>
+                  </div>
+                  <div class="price-main-row">
+                    <span class="price-val">${p.price}</span>
+                    <small>on Amazon</small>
+                  </div>
+                </div>
+              `;
+            }
+            return `<div class="price">${p.price}<small>on Amazon</small></div>`;
+          })()}
+          <a href="${p.link}" class="buy">View deal <span class="buy-arrow">→</span></a>
         </div>
       </div>
     </div>
@@ -544,6 +585,7 @@ function parsePrice(priceStr){
 let activeCategory = 'All';
 let searchQuery = '';
 let priceMax = null; // set on init to the highest product price
+let currentSort = 'featured';
 
 function wireProductCardEvents(container){
   if (window.initCardTilt) window.initCardTilt();
@@ -560,12 +602,21 @@ function renderProducts(){
   const container = document.getElementById('productsContainer');
   if(!container) return;
 
-  const filtered = PRODUCTS.filter(p => {
+  let filtered = PRODUCTS.filter(p => {
     const matchesCategory = activeCategory === 'All' || p.category === activeCategory;
     const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesPrice = priceMax === null || parsePrice(p.price) <= priceMax;
     return matchesCategory && matchesSearch && matchesPrice;
   });
+
+  // Apply Live Sorting (Change 3)
+  if (currentSort === 'price-asc') {
+    filtered.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+  } else if (currentSort === 'price-desc') {
+    filtered.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+  } else if (currentSort === 'rating-desc') {
+    filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+  }
 
   if (filtered.length === 0) {
     container.innerHTML = '<div class="no-results">No products match your search.</div>';
@@ -581,6 +632,13 @@ function renderProducts(){
 }
 
 function setupProductControls(){
+  const sortSelect = document.getElementById('productSort');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', () => {
+      currentSort = sortSelect.value;
+      renderProducts();
+    });
+  }
   const categories = ['All', ...new Set(PRODUCTS.map(p => p.category))];
   const pillsContainer = document.getElementById('filterPills');
   if (pillsContainer) {
