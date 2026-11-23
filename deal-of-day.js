@@ -51,6 +51,9 @@ function dealCardHTML(p){
         <button type="button" class="wishlist-btn${isSavedItem ? ' saved' : ''}" data-name="${safeName}" aria-pressed="${isSavedItem}" aria-label="${isSavedItem ? 'Remove from saved' : 'Save this product'}">
           <span class="wishlist-icon">${isSavedItem ? '♥' : '♡'}</span>
         </button>
+        <button type="button" class="card-share-btn deal-share-btn" data-name="${safeName}" aria-label="Share deal of the day" title="Share Deal">
+          <span class="share-icon">🔗</span>
+        </button>
       </div>
       <div class="deal-info">
         <span class="deal-badge">⚡ Deal of the Day</span>
@@ -60,8 +63,43 @@ function dealCardHTML(p){
           ${p.specs.map(([label, value]) => `<div><span>${label}</span><span>${value}</span></div>`).join('')}
         </div>
         <p class="about">${p.about}</p>
+        
+        <!-- Live Deal Urgency Meter -->
+        <div class="deal-urgency-box">
+          <div class="deal-urgency-header">
+            <span class="deal-urgency-fire">🔥 Limited Stock Claim</span>
+            <span class="deal-urgency-percent">82% Claimed</span>
+          </div>
+          <div class="deal-urgency-track">
+            <div class="deal-urgency-fill" style="width: 82%"></div>
+          </div>
+          <div class="deal-urgency-sub">
+            <span>⚡ Hurry! Only <strong>3 items</strong> left at this deal price</span>
+          </div>
+        </div>
+
         <div class="deal-footer">
-          <div class="price">${p.price}<small>on Amazon</small></div>
+          ${(() => {
+            const numPrice = (typeof parsePrice === 'function') ? parsePrice(p.price) : 0;
+            if (numPrice > 0) {
+              const discount = 38;
+              const mrpNum = Math.round(numPrice / (1 - (discount / 100)));
+              const mrpStr = '₹' + mrpNum.toLocaleString('en-IN');
+              return `
+                <div class="price">
+                  <div class="price-mrp-row">
+                    <span class="price-mrp">${mrpStr}</span>
+                    <span class="discount-pill">${discount}% OFF</span>
+                  </div>
+                  <div class="price-main-row">
+                    <span class="price-val">${p.price}</span>
+                    <small>on Amazon</small>
+                  </div>
+                </div>
+              `;
+            }
+            return `<div class="price">${p.price}<small>on Amazon</small></div>`;
+          })()}
           <div class="deal-countdown">
             <div class="deal-countdown-timer" data-deal-countdown>--:--:--</div>
             <span class="teaser-sub">until next deal</span>
