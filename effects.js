@@ -1,13 +1,34 @@
 /* =========================================================
    EFFECTS — ambient visual polish for the site.
-   Three independent effects, all original/lightweight:
-   1. Falling ambient particles (drifting emoji, background)
+   Four independent effects, all original/lightweight:
+   1. Falling ambient particles (drifting shapes, background)
    2. Flickering glow accent (on the logo badge)
    3. Cursor-follow glow trail (desktop only)
+   4. Parallax layers & header scroll state
    No editing needed here — purely decorative, self-contained.
    ========================================================= */
 (function(){
   const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Hamburger mobile menu ---------- */
+  const hamburger = document.getElementById('hamburger');
+  const mobileOverlay = document.getElementById('mobileNavOverlay');
+  if (hamburger && mobileOverlay) {
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      mobileOverlay.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileOverlay.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileOverlay.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  }
 
   /* ---------- Page fade-in on load ---------- */
   window.addEventListener('load', () => {
@@ -20,6 +41,8 @@
   /* safety net: never leave the page invisible for more than 2s */
   setTimeout(() => document.body.classList.add('page-loaded'), 2000);
 
+  const siteHeader = document.getElementById('siteHeader');
+
   /* ---------- Scroll-to-top button ---------- */
   const topBtn = document.createElement('button');
   topBtn.className = 'scroll-top-btn';
@@ -29,9 +52,6 @@
   topBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: REDUCE ? 'auto' : 'smooth' });
   });
-  window.addEventListener('scroll', () => {
-    topBtn.classList.toggle('visible', window.scrollY > window.innerHeight * 0.8);
-  }, { passive: true });
 
   /* ---------- Product card 3D tilt on hover ---------- */
   window.initCardTilt = function(){
@@ -43,7 +63,7 @@
         const r = card.getBoundingClientRect();
         const x = (e.clientX - r.left) / r.width - 0.5;
         const y = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = `perspective(700px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-4px)`;
+        card.style.transform = `perspective(900px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
       });
       card.addEventListener('mouseleave', () => {
         card.style.transform = '';
@@ -124,7 +144,7 @@
     navSections.forEach(sec => navObserver.observe(sec));
   }
 
-  /* ---------- 0. Cycling hero emoji (pixel art images) ---------- */
+  /* ---------- 0. Cycling hero emoji — 3D premium treatment ---------- */
   const CYCLE_EMOJIS = [
     "emojis/1.png", // 🙃
     "emojis/2.png", // 😉
@@ -136,22 +156,120 @@
     "emojis/8.png", // 🤨
     "emojis/9.png"  // 😏
   ];
-  const emojiEl = document.querySelector('#emojiCycle .cycle-emoji');
-  if (emojiEl && !REDUCE) {
-    let idx = 0;
-    setInterval(() => {
-      idx = (idx + 1) % CYCLE_EMOJIS.length;
-      emojiEl.style.animation = 'none';
-      void emojiEl.offsetWidth;
-      emojiEl.src = CYCLE_EMOJIS[idx];
-      emojiEl.style.animation = "emojiIn 0.4s ease";
-    }, 1500);
+
+  // Upgrade emoji DOM: wrap img in .emoji-3d-wrap, add shine overlay
+  const emojiCycleContainer = document.getElementById('emojiCycle');
+  const emojiEl = emojiCycleContainer
+    ? emojiCycleContainer.querySelector('.cycle-emoji')
+    : null;
+
+  if (emojiEl && emojiCycleContainer) {
+    // Build 3D wrapper
+    const wrap = document.createElement('div');
+    wrap.className = 'emoji-3d-wrap';
+
+    // Shine highlight
+    const shine = document.createElement('div');
+    shine.className = 'emoji-shine';
+
+    // Move img into wrap, add shine
+    emojiCycleContainer.removeChild(emojiEl);
+    wrap.appendChild(emojiEl);
+    wrap.appendChild(shine);
+    emojiCycleContainer.appendChild(wrap);
+
+    if (!REDUCE) {
+      let idx = 0;
+      setInterval(() => {
+        idx = (idx + 1) % CYCLE_EMOJIS.length;
+        // Fade out
+        emojiEl.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
+        emojiEl.style.opacity = '0';
+        emojiEl.style.transform = 'scale(0.85)';
+
+        setTimeout(() => {
+          emojiEl.src = CYCLE_EMOJIS[idx];
+          emojiEl.style.transition = 'opacity 0.3s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1)';
+          emojiEl.style.opacity = '1';
+          emojiEl.style.transform = 'scale(1)';
+        }, 160);
+      }, 2200); // slightly longer interval for premium feel
+    }
   }
+
+  /* ---------- Single scroll handler: header, progress, top button, parallax ---------- */
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  progressBar.setAttribute('aria-hidden', 'true');
+  (siteHeader || document.body).appendChild(progressBar);
+
+  const heroSection = document.getElementById('hero');
+  const heroBg = document.getElementById('heroBg');
+  const heroContent = heroSection ? heroSection.querySelector('.hero-content') : null;
+  const heroVisual = heroSection ? heroSection.querySelector('.hero-visual') : null;
+  const parallaxLayers = document.querySelectorAll('.parallax-layer');
+
+  let scrollTicking = false;
+  let headerScrolled = false;
+  let topVisible = false;
+
+  function onScrollFrame(){
+    scrollTicking = false;
+    const y = window.scrollY;
+    const vh = window.innerHeight;
+    const max = document.documentElement.scrollHeight - vh;
+
+    progressBar.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+
+    const scrolled = y > 60;
+    if (siteHeader && scrolled !== headerScrolled) {
+      headerScrolled = scrolled;
+      siteHeader.classList.toggle('scrolled', scrolled);
+    }
+
+    const showTop = y > vh * 0.8;
+    if (showTop !== topVisible) {
+      topVisible = showTop;
+      topBtn.classList.toggle('visible', showTop);
+    }
+
+    if (REDUCE) return;
+
+    if (heroSection) {
+      const heroH = heroSection.offsetHeight;
+      if (y <= heroH * 1.1) {
+        const p = Math.min(y / heroH, 1);
+        if (heroBg) heroBg.style.transform = 'translate3d(0,' + (y * 0.4) + 'px,0)';
+        if (heroContent) {
+          heroContent.style.translate = '0 ' + (y * 0.1) + 'px';
+          heroContent.style.opacity = String(1 - p * 0.5);
+        }
+        if (heroVisual) heroVisual.style.translate = '0 ' + (y * 0.18) + 'px';
+      }
+    }
+
+    if (parallaxLayers.length) {
+      parallaxLayers.forEach(el => {
+        const speed = parseFloat(el.dataset.speed || '0.2');
+        const rect = el.getBoundingClientRect();
+        el.style.transform = 'translateY(' + ((vh / 2 - rect.top) * speed) + 'px)';
+      });
+    }
+  }
+
+  function requestScrollFrame(){
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(onScrollFrame);
+  }
+  window.addEventListener('scroll', requestScrollFrame, { passive: true });
+  window.addEventListener('resize', requestScrollFrame, { passive: true });
+  onScrollFrame();
 
   if (REDUCE) return;
 
-  /* ---------- 1. Falling ambient particles ---------- */
-  const FALL_SYMBOLS = ['❄️'];
+  /* ---------- 1. Falling ambient particles (brutalist shapes) ---------- */
+  const FALL_SYMBOLS = ['◆', '●', '▲', '■'];
   const FALL_COUNT = window.innerWidth < 700 ? 8 : 14;
 
   const fallLayer = document.createElement('div');
@@ -168,7 +286,7 @@
     const drift = (Math.random() - 0.5) * 60;
     el.style.cssText =
       'position:absolute;top:-40px;left:' + startX + 'vw;' +
-      'font-size:' + size + 'px;opacity:' + (0.10 + Math.random() * 0.14) + ';' +
+      'font-size:' + size + 'px;opacity:' + (0.03 + Math.random() * 0.06) + ';' +
       'animation:fallDrift ' + duration + 's linear infinite;' +
       'animation-delay:' + delay + 's;' +
       '--drift:' + drift + 'px;';
@@ -231,11 +349,14 @@
 
   const trail = [];
   let mx = -100, my = -100;
+  let trailFrame = 0;
+
   window.addEventListener('mousemove', (e) => {
     mx = e.clientX; my = e.clientY;
     trail.push({ x: mx, y: my, life: 1 });
     if (trail.length > 24) trail.shift();
-  });
+    if (!trailFrame) trailFrame = requestAnimationFrame(loop);
+  }, { passive: true });
 
   function loop(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -246,14 +367,13 @@
       if (p.life <= 0) { trail.splice(i, 1); continue; }
       const r = 6 * p.life;
       const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r);
-      grad.addColorStop(0, 'rgba(47,93,138,' + (0.30 * p.life) + ')');
-      grad.addColorStop(1, 'rgba(47,93,138,0)');
+      grad.addColorStop(0, 'rgba(255,77,0,' + (0.30 * p.life) + ')');
+      grad.addColorStop(1, 'rgba(255,77,0,0)');
       ctx.fillStyle = grad;
       ctx.beginPath();
       ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
       ctx.fill();
     }
-    requestAnimationFrame(loop);
+    trailFrame = trail.length ? requestAnimationFrame(loop) : 0;
   }
-  loop();
 })();
