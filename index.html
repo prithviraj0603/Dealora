@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dealora — Product Picks & Shorts</title>
+<title>Dealora — Product Picks &amp; Shorts</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <noscript><style>body{opacity:1 !important;}</style></noscript>
 
@@ -26,16 +26,37 @@
 <body>
 <div class="grid-bg"></div>
 
-<header>
-  <div class="logo">DEALORA <span class="tag">v1.0</span></div>
-  <nav>
+<header id="siteHeader">
+  <div class="header-inner">
+    <div class="logo">DEALORA <span class="tag">v1.0</span></div>
+    <nav id="siteNav">
+      <a href="#dealOfDaySection">Deal</a>
+      <a href="#find-your-pick">Quiz</a>
+      <a href="#picks">Picks</a>
+      <a href="#shorts">Shorts</a>
+      <a href="#about">About</a>
+    </nav>
+    <button class="shortcuts-toggle-btn" id="shortcutsToggle" aria-label="Keyboard shortcuts" title="Keyboard Shortcuts (?)">
+      <span class="kbd-btn-label">⌨️</span>
+    </button>
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark/light theme" title="Toggle Theme">
+      <span class="theme-icon sun-icon">☀️</span>
+      <span class="theme-icon moon-icon">🌙</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="mobile-nav-overlay" id="mobileNavOverlay">
+  <nav class="mobile-nav">
     <a href="#dealOfDaySection">Deal</a>
     <a href="#find-your-pick">Quiz</a>
     <a href="#picks">Picks</a>
     <a href="#shorts">Shorts</a>
     <a href="#about">About</a>
   </nav>
-</header>
+</div>
 
 <!-- Floating saved-items button: fixed near the top of the viewport.
      Clicking it scrolls down to #savedSection. Count + heart states are
@@ -47,9 +68,10 @@
 </button>
 
 <section class="hero" id="hero">
-  <div>
-    <!-- <span class="eyebrow">CH. 00 — REAL GEAR. REAL NUMBERS. NO BS.</span> -->
-    <h1>Stop guessing.<br>Start <em>knowing.</em></h1>
+  <div class="parallax-bg" id="heroBg"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">— REAL GEAR. REAL NUMBERS. NO BS.</span>
+    <h1>Stop <span class="hero-accent">guessing.</span><br>Start <em>knowing.</em></h1>
     <p id="heroTagline" class="hero-tagline">I test this stuff in my shorts before it ever lands here — real specs, honest verdicts, and a direct link the moment I'd actually buy it myself.</p>
     <div class="hero-ctas">
       <a href="#picks" class="btn btn-primary">View picks →</a>
@@ -60,13 +82,11 @@
       <div class="stat"><span class="stat-num" data-target="0">0</span><span class="stat-label">Shorts published</span></div>
     </div>
   </div>
-  <div class="schematic" id="heroCanvasWrap">
+  <div class="hero-visual" id="heroCanvasWrap">
     <div class="emoji-cycle" id="emojiCycle">
       <img class="cycle-emoji" src="emojis/1.png" alt="emoji">
     </div>
-    <!-- <span class="callout c1">01 — MATERIAL</span>
-    <span class="callout c2">02 — SPEC</span>
-    <span class="callout c3">03 — PRICE</span> -->
+    <div class="hero-noise"></div>
   </div>
 </section>
 
@@ -95,8 +115,10 @@
 
 <section id="picks">
   <div class="section-head">
-    <span class="num">01</span>
-    <h2>Current picks</h2>
+    <div class="section-head-left">
+      <span class="num">01</span>
+      <h2>Current picks</h2>
+    </div>
     <span class="desc">UPDATED WEEKLY</span>
   </div>
   <div class="product-controls">
@@ -104,6 +126,15 @@
     <div class="price-slider-wrap">
       <label for="priceSlider">Up to <span id="priceValueLabel">₹0</span></label>
       <input type="range" id="priceSlider" min="59" max="1000" step="1" class="price-slider">
+    </div>
+    <div class="sort-dropdown-wrap">
+      <label for="productSort" class="sort-label">Sort:</label>
+      <select id="productSort" class="product-sort-select" aria-label="Sort products">
+        <option value="featured">★ Featured</option>
+        <option value="price-asc">Price: Low to High ↑</option>
+        <option value="price-desc">Price: High to Low ↓</option>
+        <option value="rating-desc">Highest Rated ⭐</option>
+      </select>
     </div>
     <div class="filter-pills" id="filterPills"></div>
   </div>
@@ -151,12 +182,27 @@
 </section>
 
 <footer>
-  <span class="disclosure">Discover better products, make smarter choices.
-We research and highlight useful, reliable, and value-for-money products to help you find the right choice without the hassle.
-</span>
-  <a href="privacy-policy1.html" style="color:var(--text-faint); font-size:12.5px;">Privacy Policy</a>
-  <a href="contact.html" style="color:var(--text-faint); font-size:12.5px;">Contact</a>
-  <span>© 2026 Dealora</span>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">DEALORA <span class="tag">v1.0</span></div>
+      <p>Discover better products, make smarter choices.</p>
+    </div>
+    <div class="footer-links">
+      <span class="footer-label">PAGES</span>
+      <a href="privacy-policy1.html">Privacy Policy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-links">
+      <span class="footer-label">SECTIONS</span>
+      <a href="#picks">Picks</a>
+      <a href="#shorts">Shorts</a>
+      <a href="#find-your-pick">Quiz</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="disclosure">We research and highlight useful, reliable, and value-for-money products to help you find the right choice without the hassle.</span>
+    <span>© 2026 Dealora</span>
+  </div>
 </footer>
 
 <!-- Floating comparison tray: shows up once 1+ products are ticked
@@ -180,6 +226,166 @@ We research and highlight useful, reliable, and value-for-money products to help
   </div>
 </div>
 
+<!-- Quick View Modal -->
+<div class="quickview-modal-overlay" id="quickViewModalOverlay" aria-hidden="true">
+  <div class="quickview-modal" role="dialog" aria-modal="true" aria-label="Product quick view">
+    <button type="button" class="quickview-modal-close" id="quickViewModalClose" aria-label="Close product view">✕</button>
+    <div id="quickViewModalBody" class="quickview-modal-body"></div>
+  </div>
+</div>
+
+<!-- Keyboard Shortcuts Help Modal -->
+<div class="shortcuts-modal-overlay" id="shortcutsModalOverlay" aria-hidden="true">
+  <div class="shortcuts-modal" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+    <button type="button" class="shortcuts-modal-close" id="shortcutsModalClose" aria-label="Close shortcuts">✕</button>
+    <div class="shortcuts-modal-header">
+      <span class="shortcuts-badge">⌨️ PRO TIPS</span>
+      <h3>Keyboard Shortcuts</h3>
+      <p>Navigate Dealora faster with quick keyboard commands.</p>
+    </div>
+    <div class="shortcuts-grid">
+      <div class="shortcut-item">
+        <div class="shortcut-keys"><kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd></div>
+        <div class="shortcut-desc">Instant Product Search</div>
+      </div>
+      <div class="shortcut-item">
+        <div class="shortcut-keys"><kbd>T</kbd></div>
+        <div class="shortcut-desc">Toggle Dark / Light Theme</div>
+      </div>
+      <div class="shortcut-item">
+        <div class="shortcut-keys"><kbd>W</kbd></div>
+        <div class="shortcut-desc">Jump to Saved Picks</div>
+      </div>
+      <div class="shortcut-item">
+        <div class="shortcut-keys"><kbd>D</kbd></div>
+        <div class="shortcut-desc">Jump to Deal of the Day</div>
+      </div>
+      <div class="shortcut-item">
+        <div class="shortcut-keys"><kbd>Q</kbd></div>
+        <div class="shortcut-desc">Find Your Pick (Quiz)</div>
+      </div>
+      <div class="shortcut-item">
+        <div class="shortcut-keys"><kbd>Esc</kbd></div>
+        <div class="shortcut-desc">Close Any Open Modal</div>
+      </div>
+      <div class="shortcut-item">
+        <div class="shortcut-keys"><kbd>?</kbd></div>
+        <div class="shortcut-desc">Toggle This Shortcut Menu</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Toast Notification Stack -->
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+<!-- Confetti Canvas -->
+<canvas id="dealoraConfettiCanvas" class="dealora-confetti-canvas"></canvas>
+
+<!-- In-Page Shorts & Video Reel Player Modal (Option 1) -->
+<div class="reel-modal-overlay" id="reelModalOverlay" aria-hidden="true">
+  <div class="reel-modal" role="dialog" aria-modal="true" aria-label="Shorts Reel Player">
+    <button type="button" class="reel-modal-close" id="reelModalClose" aria-label="Close reel player">✕</button>
+    
+    <div class="reel-player-container" id="reelPlayerContainer">
+      <div class="reel-video-frame" id="reelVideoFrame">
+        <!-- iframe rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- Reel Overlay Controls & Meta -->
+    <div class="reel-info-bar">
+      <div class="reel-meta">
+        <span class="reel-badge">🎬 DEALORA SHORTS</span>
+        <h4 id="reelVideoTitle" class="reel-title">Short Title</h4>
+      </div>
+      <div class="reel-nav-controls">
+        <button type="button" class="reel-nav-btn" id="reelPrevBtn" aria-label="Previous short" title="Previous Short (↑)">
+          <span>▲</span>
+        </button>
+        <span class="reel-counter" id="reelCounter">1 / 4</span>
+        <button type="button" class="reel-nav-btn" id="reelNextBtn" aria-label="Next short" title="Next Short (↓)">
+          <span>▼</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Spotlight Command Palette Modal (Option 2) -->
+<div class="spotlight-modal-overlay" id="spotlightModalOverlay" aria-hidden="true">
+  <div class="spotlight-modal" role="dialog" aria-modal="true" aria-label="Spotlight Search">
+    <div class="spotlight-input-wrap">
+      <span class="spotlight-icon">🔍</span>
+      <input type="text" id="spotlightInput" class="spotlight-input" placeholder="Search products, brands, categories... (or press Esc to exit)" autocomplete="off" spellcheck="false">
+      <kbd class="spotlight-esc-badge">ESC</kbd>
+    </div>
+
+    <div class="spotlight-quick-chips">
+      <button type="button" class="spotlight-chip" data-action="deal">⚡ Deal of the Day</button>
+      <button type="button" class="spotlight-chip" data-action="quiz">🎯 Find Your Pick</button>
+      <button type="button" class="spotlight-chip" data-action="wishlist">❤️ Saved Picks</button>
+      <button type="button" class="spotlight-chip" data-action="theme">☀️ Toggle Theme</button>
+    </div>
+
+    <div class="spotlight-results-wrap" id="spotlightResults">
+      <!-- Dynamic live search results rendered here -->
+    </div>
+
+    <div class="spotlight-footer">
+      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+      <span><kbd>↵</kbd> to select</span>
+      <span><kbd>ESC</kbd> to close</span>
+    </div>
+  </div>
+</div>
+
+<!-- Product Share & Mobile QR Code Modal (Option 3) -->
+<div class="share-modal-overlay" id="shareModalOverlay" aria-hidden="true">
+  <div class="share-modal" role="dialog" aria-modal="true" aria-label="Share Product Deal">
+    <button type="button" class="share-modal-close" id="shareModalClose" aria-label="Close share modal">✕</button>
+    
+    <div class="share-modal-header">
+      <span class="share-badge">🔗 SHARE & SCAN</span>
+      <h3 id="shareProductTitle">Product Name</h3>
+      <p>Scan with your smartphone camera or copy the direct deal link.</p>
+    </div>
+
+    <div class="share-modal-body">
+      <!-- QR Code Section -->
+      <div class="share-qr-wrap">
+        <div class="share-qr-card">
+          <img id="shareQrImage" src="" alt="Scan Deal QR Code" class="share-qr-img">
+          <div class="share-qr-shine"></div>
+        </div>
+        <span class="share-qr-hint">📱 Scan to open directly on Amazon App</span>
+      </div>
+
+      <!-- Copy Link Section -->
+      <div class="share-link-box">
+        <input type="text" id="shareLinkInput" class="share-link-input" readonly>
+        <button type="button" id="shareCopyBtn" class="share-copy-btn">
+          <span class="share-copy-text">Copy Link</span>
+          <span class="share-copy-icon">📋</span>
+        </button>
+      </div>
+
+      <!-- Quick Social Share Buttons -->
+      <div class="share-social-row">
+        <a id="shareWhatsappBtn" href="#" target="_blank" rel="noopener noreferrer" class="social-share-btn share-wa">
+          <span>WhatsApp</span>
+        </a>
+        <a id="shareTwitterBtn" href="#" target="_blank" rel="noopener noreferrer" class="social-share-btn share-tw">
+          <span>X / Twitter</span>
+        </a>
+        <a id="shareTelegramBtn" href="#" target="_blank" rel="noopener noreferrer" class="social-share-btn share-tg">
+          <span>Telegram</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="products.js"></script>
 <script src="compare.js"></script>
 <script src="deal-of-day.js"></script>
@@ -191,5 +397,6 @@ We research and highlight useful, reliable, and value-for-money products to help
 <script src="chatbot.js"></script>
 <script src="videos.js"></script>
 <script src="quickpicks.js"></script>
+<script src="interactive.js"></script>
 </body>
 </html>
