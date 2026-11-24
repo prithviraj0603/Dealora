@@ -8,6 +8,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* Critical hide rule: prevent modal overlays from appearing inline before CSS loads */
+  .reel-modal-overlay:not(.open),
+  .spotlight-modal-overlay:not(.open),
+  .share-modal-overlay:not(.open),
+  .quickview-modal-overlay:not(.open),
+  .shortcuts-modal-overlay:not(.open) {
+    display: none !important;
+  }
+</style>
 <noscript><style>body{opacity:1 !important;}</style></noscript>
 
 <!-- Google tag (gtag.js) -->
@@ -394,9 +404,9 @@
 <script src="shorts.js"></script>
 <script src="scroll-effects.js"></script>
 <script src="effects.js"></script>
-<script src="chatbot.js"></script>
+<script src="Chatbot.js" onerror="this.onerror=null;this.src='chatbot.js'"></script>
 <script src="videos.js"></script>
 <script src="quickpicks.js"></script>
-<script src="interactive.js"></script>
+<script src="interactive.js" onerror="this.onerror=null;this.src='intractive.js'"></script>
 </body>
 </html>
