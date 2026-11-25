@@ -378,6 +378,115 @@
   about: "A compact RGB digital desk alarm clock designed to combine practical timekeeping with colourful LED lighting. It features adjustable LED colours and brightness, easy alarm controls, soothing music options, and a snooze function. Powered by 3 AAA batteries, its compact 7.5 x 7.5 x 7.5 cm design is ideal for desks, nightstands, travel, and gifting.",
   price: "₹309",
   link: "https://link.amazon/B06MNC8eb"
+},
+     {
+  category: "Beauty Products & Skincare",
+  name: "BiE Moongleam Gel Illuminating Face Cream",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/51M6Wjvg9SL._SL1080_.jpg",
+  specs: [
+    ["Formula: ", "Lightweight gel-based moisturiser that hydrates, brightens, and illuminates the skin"],
+    ["Ingredients: ", "Enriched with pearl protein, gold, silver, and diamond dust for a radiant-looking finish"],
+    ["Hydration: ", "Contains 1% hyaluronic acid to help hydrate and plump the skin"],
+    ["Texture: ", "Non-greasy formula that absorbs quickly into the skin"],
+    ["Skin Benefits: ", "Helps reduce the appearance of dullness and uneven skin tone for a radiant look"],
+    ["Multi-Use: ", "Can also be used as a makeup primer, strobe cream, and highlighter"],
+    ["Suitable For: ", "All skin types and unisex use"]
+  ],
+  rating: 4.1,
+  about: "BiE Moongleam Gel is an illuminating face cream designed to hydrate the skin while adding a subtle radiant shimmer. Enriched with pearl protein, gold, silver, diamond dust, and 1% hyaluronic acid, its lightweight, non-greasy formula helps improve the appearance of dull skin. It can also be used as a glow-boosting primer, strobe cream, or highlighter.",
+  price: "₹2,999",
+  link: "https://link.amazon/B0gDVO35b"
+},
+     {
+  category: "Beauty Products & Skincare",
+  name: "COSRX Pure Sodium Hyaluronic Acid 3% Serum",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/61beuSthkcL._SL1500_.jpg",
+  specs: [
+    ["Key Ingredient: ", "Contains 3% sodium hyaluronic acid for hydration and moisture support"],
+    ["Hydration: ", "Helps boost skin hydration and maintain moisture"],
+    ["Skin Benefits: ", "Helps improve the appearance of fine lines and wrinkles by keeping skin hydrated"],
+    ["Skin Feel: ", "Helps make dry skin feel plumper, softer, and more hydrated"],
+    ["Formula: ", "Facial serum designed for daily skincare routines"],
+    ["Origin: ", "Korean skincare product"],
+    ["Quantity: ", "20 ml (0.67 fl. oz.)"]
+  ],
+  rating: 4.3,
+  about: "COSRX Pure Sodium Hyaluronic Acid 3% Serum is a Korean skincare facial serum designed to provide hydration and moisture support. Formulated with 3% sodium hyaluronic acid, it helps hydrate dry skin, improve the appearance of fine lines, and leave skin feeling plumper and softer.",
+  price: "₹2,100",
+  link: "https://link.amazon/B0ee1pC1y"
+},
+     {
+  category: "Beauty Products & Skincare",
+  name: "Medicube Glutathione Glow Serum",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/61sxOjNyMXL._SL1500_.jpg",
+  specs: [
+    ["Key Ingredient: ", "Formulated with 5% Glutathione Liposome (50,000 ppm) and 5% Niacinamide"],
+    ["Skin Benefits: ", "Helps target dark spots, dullness, and uneven skin tone for a radiant appearance"],
+    ["Additional Ingredients: ", "Contains adenosine, collagen, and bifida fermentation lysate for elasticity and skin barrier support"],
+    ["Texture: ", "Lightweight, slightly viscous watery serum that absorbs quickly"],
+    ["Finish: ", "Non-greasy and non-sticky feel after application"],
+    ["Origin: ", "Korean skincare product"],
+    ["Quantity: ", "30 g"]
+  ],
+  rating: 4,
+  about: "Medicube Glutathione Glow Serum is a Korean brightening and anti-aging facial serum designed to promote radiant, glowing skin. Formulated with 5% glutathione liposome and 5% niacinamide, it helps target dark spots, dullness, and uneven skin tone. Enriched with adenosine, collagen, and bifida fermentation lysate, its lightweight formula also supports skin hydration, elasticity, and barrier care.",
+  price: "₹2,125",
+  link: "https://link.amazon/B02DRlbwy"
+},
+     {
+  category: "Beauty Products & Skincare",
+  name: "ILEM JAPAN Dew Serum",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/51f4RMUoZzL.jpg",
+  specs: [
+    ["Key Ingredients: ", "Japanese Sakura Flower Extract, Stable Vitamin C, Niacinamide, Ceramides, and Triple Hyaluronic Acid"],
+    ["Brightening: ", "Helps brighten dull-looking skin and improve the appearance of uneven skin tone"],
+    ["Dark Spots: ", "Niacinamide and Stable Vitamin C help improve the appearance of dark spots and pigmentation"],
+    ["Hydration: ", "Triple Hyaluronic Acid helps replenish moisture and keep skin feeling plump and supple"],
+    ["Skin Barrier: ", "Ceramide complex helps strengthen the skin barrier and retain moisture"],
+    ["Antioxidant Care: ", "Japanese Sakura and Yuzu extracts provide antioxidant care for a radiant-looking complexion"],
+    ["Quantity: ", "30 ml"]
+  ],
+  rating: 4.4,
+  about: "ILEM JAPAN Dew Serum is a Japanese-inspired skincare serum designed to brighten dull skin, improve uneven skin tone, and replenish moisture. Powered by capsule technology, it combines Japanese Sakura Flower Extract, Stable Vitamin C, Niacinamide, Ceramides, and Triple Hyaluronic Acid. Its formulation helps improve the appearance of dark spots while supporting skin hydration and barrier care.",
+  price: "₹1,680",
+  link: "https://link.amazon/B026Cm6YQ"
+},
+     {
+  category: "Beauty Products & Skincare",
+  name: "COSRX Full Fit Propolis Light Ampoule",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/71MRA45VavL._SL1500_.jpg",
+  specs: [
+    ["Key Ingredient: ", "Formulated with Black Bee Propolis Extract for soothing and skin care"],
+    ["Hydration: ", "Contains Hyaluronic Acid (Sodium Hyaluronate) and Panthenol to help maintain skin moisture"],
+    ["Skin Benefits: ", "Helps target dullness, dehydration, redness, and uneven skin texture"],
+    ["Skin Barrier: ", "Supports skin barrier care and helps maintain healthy-looking skin"],
+    ["Formula: ", "Lightweight hydrating ampoule designed for daily skincare"],
+    ["Skin Suitability: ", "Hypoallergenic-tested and suitable for all skin types, including sensitive and acne-prone skin"],
+    ["Quantity: ", "30 ml"]
+  ],
+  rating: 4.5,
+  about: "COSRX Full Fit Propolis Light Ampoule is a Korean hydrating facial serum designed to boost skin radiance and moisture. Formulated with Black Bee Propolis Extract, Hyaluronic Acid, and Panthenol, it helps soothe the skin, reduce the appearance of dullness and redness, and support the skin barrier. Its lightweight formula is suitable for daily skincare routines.",
+  price: "₹1,760",
+  link: "https://link.amazon/B056AgHai"
+},
+     {
+  category: "Beauty Products & Skincare",
+  name: "Beauty of Joseon Glow Serum Propolis + Niacinamide",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/619pJvn1MUL._SL1500_.jpg",
+  specs: [
+    ["Key Ingredients: ", "Contains 60% Propolis Extract and 2% Niacinamide"],
+    ["Skin Benefits: ", "Helps soothe irritated skin, improve hydration, and brighten uneven skin tone"],
+    ["Pore Care: ", "Contains 0.5% BHA (Betaine Salicylate) to help clear sebum and buildup inside pores"],
+    ["Oil Control: ", "Niacinamide helps balance excess sebum and improve the appearance of pores"],
+    ["Texture: ", "Lightweight, honey-like serum texture"],
+    ["Skin Suitability: ", "Suitable for all skin types, especially oily, combination, and acne-prone skin"],
+    ["Formula: ", "Free from artificial fragrances and essential oils"],
+    ["Quantity: ", "30 ml"]
+  ],
+  rating: 4.2,
+  about: "Beauty of Joseon Glow Serum is a Korean skincare serum formulated with 60% Propolis Extract, 2% Niacinamide, and BHA. It helps soothe irritated skin, maintain hydration, balance excess sebum, and improve the appearance of pores and uneven skin tone. Its honey-like texture absorbs without leaving a sticky residue.",
+  price: "₹1,012",
+  link: "https://link.amazon/B0eVLBsey"
 }
 
 ];
@@ -394,10 +503,32 @@
    section entirely.
    ========================================================= */
 const DEAL_OF_DAY_POOL = [
-  "Lenovo Legion Pro 7",
-  "Elgato Stream Deck Mini",
-  "Bonkaso Laptop Cooling Pad",
-  "SPEED RGB Gaming Mouse Pad"
+ "Ambrane Air Blower",
+"CLAW Storm Pro A21 Laptop Cooling Pad",
+"Lenovo Legion Pro 7",
+"Acer Predator Helios 16",
+"Acer ALG",
+"ASUS ROG Strix G16",
+"E GATE Atom 2X+ Smart Projector",
+"Fireplace-Style Aroma Diffuser",
+"Quntis Monitor Light Bar Glow Plus 20.1-inch",
+"HiWe 4-in-1 Headphone & Controller Stand",
+"Elgato Stream Deck Mini",
+"GRENARO S12 Wireless Microphone",
+"ZEBRONICS Companion 301 Keyboard + Mouse",
+"Portronics Mport 8 USB-C Hub",
+"SPEED RGB Gaming Mouse Pad",
+"Bonkaso Laptop Cooling Pad",
+"Glixon X8 Turbo Air Blower",
+"Retro Sound Mini Voice Recorder Keychain",
+"3D Saturn Crystal Ball Night Lamp",
+"RGB Aura Digital Alarm Clock",
+"BiE Moongleam Gel Illuminating Face Cream",
+"COSRX Pure Sodium Hyaluronic Acid 3% Serum",
+"Medicube Glutathione Glow Serum",
+"ILEM JAPAN Dew Serum",
+"COSRX Full Fit Propolis Light Ampoule",
+"Beauty of Joseon Glow Serum Propolis + Niacinamide"
 ];
 
 /* How many deals to feature at once each day. 1 = a single big
