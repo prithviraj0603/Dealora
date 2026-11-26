@@ -487,6 +487,42 @@
   about: "Beauty of Joseon Glow Serum is a Korean skincare serum formulated with 60% Propolis Extract, 2% Niacinamide, and BHA. It helps soothe irritated skin, maintain hydration, balance excess sebum, and improve the appearance of pores and uneven skin tone. Its honey-like texture absorbs without leaving a sticky residue.",
   price: "₹1,012",
   link: "https://link.amazon/B0eVLBsey"
+},
+     {
+  category: "Computer Accessories",
+  name: "Logitech G102 Light Sync Gaming Mouse",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/61RYwHoeHjL._SL1500_.jpg",
+  specs: [
+    ["Sensor: ", "8,000 DPI gaming-grade optical sensor with adjustable sensitivity from 200 to 8,000 DPI."],
+    ["RGB Lighting: ", "LIGHTSYNC RGB with 16.8 million colors, wave effects, and audio visualization."],
+    ["Buttons: ", "6 programmable buttons with mechanical spring tensioning for crisp clicks."],
+    ["Customization: ", "Logitech G HUB software with onboard memory for DPI, macros, and lighting profiles."],
+    ["Connectivity: ", "Wired USB connection with Windows, macOS, and Chrome OS compatibility."],
+    ["Warranty: ", "2-year manufacturer warranty."]
+  ],
+  rating: 4.4,
+  about: "A customizable wired gaming mouse featuring an 8,000 DPI sensor, LIGHTSYNC RGB lighting, and 6 programmable buttons. Designed for precise tracking and responsive FPS gaming.",
+  price: "₹1,495",
+  link: "https://link.amazon/B0gyDA6TS"
+},
+
+{
+  category: "Computer Accessories",
+  name: "Redragon K617 Fizz 60% Wired RGB Gaming Keyboard",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/61Cj6RHI5GL._SL1500_.jpg",
+  specs: [
+    ["Layout: ", "Compact 60% design with 61 keys, saving desk space for better mouse movement."],
+    ["Switches: ", "Hot-swappable linear Red mechanical switches rated for 50 million keypresses."],
+    ["RGB Lighting: ", "20 built-in RGB lighting modes with adjustable brightness and speed."],
+    ["Customization: ", "Redragon software support for custom macros, keybindings, and lighting profiles."],
+    ["Connectivity: ", "Detachable wired USB-C cable with full key rollover."],
+    ["Accessories: ", "Includes keycap and switch puller along with spare switches."],
+    ["Warranty: ", "1-year manufacturer warranty."]
+  ],
+  rating: 4.4,
+  about: "A compact 60% mechanical gaming keyboard featuring hot-swappable Red switches, 20 RGB lighting modes, and software customization. Its space-saving design is ideal for gaming setups.",
+  price: "₹2,190",
+  link: "https://www.amazon.in/Redragon-K617-Keyboard-Mechanical-Supported/dp/B09JSZYKYR?crid=33YJ15FWRU7VF&dib=eyJ2IjoiMSJ9.s1s00qiDk7kUUjrgDRiDXK8n-7-S_s54rcddNrvERmE07VSb7NenQ7VNrwjCe8Hc0TsbAQt7Lbfc9A5TyC6u4myjkUiTt7Zo01iiNDvb4-IivefiKP_P2VFX8yflSRclHfHotm7dnoVYc1n3mVhiedMypw4yklNkCVikuxM0FiDKD-kOxLGEJU7c9vuQ4gJpXxWWj71lIeKCG7MPCXvLTfpffzFYaFeijvZ94t0GGkw.5tuCRNoF7mEnT_MSln1dbY1lGIuocaIVeeWLkrFc5II&dib_tag=se&keywords=reddragon%2Bgaming%2Bkeyboard&nsdOptOutParam=true&qid=1795670268&sprefix=redd%2Caps%2C366&sr=8-7&th=1&linkCode=ll2&tag=prithvisinghr-21&linkId=d8c9cd624d9eda21f0e58f911aa65dc9&ref_=as_li_ss_tl"
 }
 
 ];
@@ -528,7 +564,9 @@ const DEAL_OF_DAY_POOL = [
 "Medicube Glutathione Glow Serum",
 "ILEM JAPAN Dew Serum",
 "COSRX Full Fit Propolis Light Ampoule",
-"Beauty of Joseon Glow Serum Propolis + Niacinamide"
+"Beauty of Joseon Glow Serum Propolis + Niacinamide",
+   "Logitech G102 Light Sync Gaming Mouse",
+   "Redragon K617 Fizz 60% Wired RGB Gaming Keyboard"
 ];
 
 /* How many deals to feature at once each day. 1 = a single big
