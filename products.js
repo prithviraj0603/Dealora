@@ -578,6 +578,101 @@
   about: "A compact wired mechanical gaming keyboard featuring smooth hot-swappable Linear Red switches, dynamic rainbow lighting, a multifunction knob and full-key anti-ghosting.",
   price: "₹1,899",
   link: "https://link.amazon/B08OvsJ4e"
+},
+     {
+  category: "Audio & Microphones",
+  name: "Hollyland Lark A1 Mini Duo Wireless Microphone (Type-C)",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/61hqaMOuE1L._SL1500_.jpg",
+  specs: [
+    ["Audio Quality: ", "48kHz / 24-bit recording with 120dB max SPL and automatic clip protection"],
+    ["Noise Cancellation: ", "3 adjustable levels: Weak, Medium, and Strong"],
+    ["Wireless Range: ", "Up to 200m (650ft) line-of-sight range"],
+    ["Microphones: ", "2 lightweight 8g magnetic clip-on transmitters"],
+    ["Battery Life: ", "Up to 18 hours with the included charging dock"],
+    ["App Controls: ", "3 EQ presets, 3 reverb modes, and 6 gain levels via LarkSound App"],
+    ["Compatibility: ", "USB-C receiver for smartphones and tablets"],
+    ["Accessories: ", "Charging dock, 2 magnets, 2 furry windshields, USB cable, and carrying bag"]
+  ],
+  rating: 4.1,
+  about: "A compact dual wireless microphone system with high-quality 24-bit audio, adjustable noise cancellation, long wireless range, and magnetic clip-on transmitters for content creation.",
+  price: "₹4,179",
+  link: "https://link.amazon/B0d7CmGOU"
+},
+{
+  category: "Home & Kitchen",
+  name: "Ninja Air Fryer PRO 4.7L",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/51HH4E7p2OL._SL1200_.jpg",
+  specs: [
+    ["Power: ", "1750W motor with temperatures up to 210°C"],
+    ["Cooking Technology: ", "360° superheated air circulation for crispy results with little to no oil"],
+    ["Cooking Modes: ", "4-in-1 Air Fry, Roast, Bake, and Reheat"],
+    ["Capacity: ", "4.7L drawer, suitable for a 1kg whole chicken or 500g fries"],
+    ["Controls: ", "Digital controls with countdown timer"],
+    ["Cleaning: ", "Chemical-free non-stick drawer and crisper plate; both dishwasher-safe"],
+    ["Warranty: ", "2-year warranty with SharkNinja India doorstep support"]
+  ],
+  rating: 4.4,
+  about: "A powerful 4.7L air fryer with four cooking modes, high-temperature air circulation, and easy-to-clean dishwasher-safe components.",
+  price: "₹6,999",
+  link: "https://link.amazon/B049jJQRO"
+},
+{
+  category: "Smart Home Devices",
+  name: "Amazon Fire TV Stick HD (2nd Gen)",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/61ymtKd3WxL._SL1500_.jpg",
+  specs: [
+    ["Resolution: ", "Full HD 1080p and 720p streaming at up to 60fps"],
+    ["Processor: ", "Quad-core 1.7GHz processor with 8GB internal storage"],
+    ["Video Support: ", "HDR10, HDR10+, HLG, and AV1"],
+    ["Connectivity: ", "Wi-Fi 6, Bluetooth 5.3, HDMI output, and USB-C power"],
+    ["Voice Control: ", "Alexa Voice Remote with dedicated TV power and volume buttons"],
+    ["Streaming Apps: ", "Supports Prime Video, Netflix, YouTube, JioHotstar, SonyLIV, Zee5, and more"],
+    ["Gaming: ", "Supports Xbox Game Pass cloud gaming with a separate subscription and compatible controller"],
+    ["In the Box: ", "Fire TV Stick, Alexa Voice Remote, 2 AAA batteries, and 0.4m USB-C power cable"]
+  ],
+  rating: 3.9,
+  about: "A compact Full HD streaming device that upgrades your TV with popular streaming apps, Alexa voice control, Wi-Fi 6 connectivity, and a faster Fire TV experience.",
+  price: "₹3,499",
+  link: "https://link.amazon/B0au8K13F"
+},
+     {
+  category: "Audio & Speakers",
+  name: "ZEBRONICS Juke BAR 200A Soundbar",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/71+Y1B4HaqL._SL1500_.jpg",
+  specs: [
+    ["Output: ", "90W RMS total output"],
+    ["Soundbar: ", "Dual 5.08 cm drivers with 40W output"],
+    ["Subwoofer: ", "11.43 cm wired subwoofer with 50W output"],
+    ["Audio: ", "Dolby Digital and Dolby Digital+ support"],
+    ["Connectivity: ", "Bluetooth 5.1, HDMI ARC and USB"],
+    ["Design: ", "Glossy piano-finish soundbar with matte-finish subwoofer"],
+    ["Controls: ", "Remote control and onboard volume/media buttons"],
+    ["Warranty: ", "1-year brand warranty"]
+  ],
+  rating: 3.8,
+  about: "A compact 90W home theatre soundbar with Dolby Audio, a dedicated wired subwoofer, Bluetooth connectivity and HDMI ARC support for an enhanced home entertainment experience.",
+  price: "₹3,299",
+  link: "https://link.amazon/B0hhJ9Esr"
+},
+{
+  category: "Smart Home Devices",
+  name: "Amazon Echo Show 5 (3rd Gen)",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/71BJ0YxzoyL._SL1500_.jpg",
+  specs: [
+    ["Display: ", "5.5-inch touchscreen"],
+    ["Audio: ", "1.7-inch full-range speaker with deeper bass"],
+    ["Camera: ", "2MP camera with built-in physical shutter"],
+    ["Privacy: ", "Dedicated microphone and camera off button"],
+    ["Connectivity: ", "Dual-band Wi-Fi and Bluetooth"],
+    ["Processor: ", "MediaTek MT 8169 B processor"],
+    ["Assistant: ", "Alexa+ support with English and Hindi"],
+    ["Design: ", "Compact design available in Cloud Blue and Charcoal"],
+    ["Warranty: ", "1-year limited warranty"]
+  ],
+  rating: 3.4,
+  about: "A compact smart display featuring Alexa voice assistance, a touchscreen, built-in camera, improved speaker bass and smart home control capabilities.",
+  price: "₹8,999",
+  link: "https://link.amazon/B00bAUAzG"
 }
 
 ];
