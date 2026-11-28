@@ -523,6 +523,61 @@
   about: "A compact 60% mechanical gaming keyboard featuring hot-swappable Red switches, 20 RGB lighting modes, and software customization. Its space-saving design is ideal for gaming setups.",
   price: "₹2,190",
   link: "https://www.amazon.in/Redragon-K617-Keyboard-Mechanical-Supported/dp/B09JSZYKYR?crid=33YJ15FWRU7VF&dib=eyJ2IjoiMSJ9.s1s00qiDk7kUUjrgDRiDXK8n-7-S_s54rcddNrvERmE07VSb7NenQ7VNrwjCe8Hc0TsbAQt7Lbfc9A5TyC6u4myjkUiTt7Zo01iiNDvb4-IivefiKP_P2VFX8yflSRclHfHotm7dnoVYc1n3mVhiedMypw4yklNkCVikuxM0FiDKD-kOxLGEJU7c9vuQ4gJpXxWWj71lIeKCG7MPCXvLTfpffzFYaFeijvZ94t0GGkw.5tuCRNoF7mEnT_MSln1dbY1lGIuocaIVeeWLkrFc5II&dib_tag=se&keywords=reddragon%2Bgaming%2Bkeyboard&nsdOptOutParam=true&qid=1795670268&sprefix=redd%2Caps%2C366&sr=8-7&th=1&linkCode=ll2&tag=prithvisinghr-21&linkId=d8c9cd624d9eda21f0e58f911aa65dc9&ref_=as_li_ss_tl"
+},
+     {
+  category: "Computer Accessories",
+  name: "KARNAGE by EVM Visage Wireless RGB Gaming Keyboard",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/71ggg7dlKVL._SL1500_.jpg",
+  specs: [
+    ["Layout: ", "84-key compact layout with no numpad"],
+    ["Switches: ", "Hybrid Mecha-Membrane keys with 10-million keystroke lifespan"],
+    ["Connectivity: ", "Bluetooth 5.0/3.0, 2.4GHz wireless and USB Type-C wired"],
+    ["Backlighting: ", "RGB with 8 colour modes and 15 lighting effects"],
+    ["Battery: ", "2000mAh rechargeable battery with up to 100 hours of usage"],
+    ["Features: ", "Volume knob, digital display and 19-key anti-ghosting"],
+    ["Compatibility: ", "Windows and macOS"]
+  ],
+  rating: 4.6,
+  about: "A compact wireless RGB gaming keyboard featuring triple-mode connectivity, hybrid Mecha-Membrane keys, a multifunction volume knob, digital display and long-lasting rechargeable battery.",
+  price: "₹2,099",
+  link: "https://link.amazon/B07vBFbUT"
+},
+{
+  category: "Computer Accessories",
+  name: "Redragon Kumara K552-RGB Mechanical Gaming Keyboard",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/71lQnVCMmXL._SL1500_.jpg",
+  specs: [
+    ["Layout: ", "87-key compact tenkeyless design"],
+    ["Switches: ", "Tactile and clicky mechanical switches, hot-swappable"],
+    ["Build: ", "Metal alloy plate with ABS frame and splash-proof construction"],
+    ["Keycaps: ", "Double-shot injection-molded keycaps"],
+    ["Backlighting: ", "RGB with 18 lighting modes and 9 colours"],
+    ["Performance: ", "Full-key anti-ghosting with n-Key Rollover"],
+    ["Features: ", "12 multimedia shortcut keys and gold-plated USB connector"]
+  ],
+  rating: 4.5,
+  about: "A compact wired mechanical gaming keyboard featuring tactile clicky switches, customizable RGB lighting, hot-swappable switches, durable keycaps and full-key anti-ghosting.",
+  price: "₹2,590",
+  link: "https://link.amazon/B01qOgChb"
+},
+{
+  category: "Gaming Accessories",
+  name: "EvoFox Katana X2 TKL Mechanical Gaming Keyboard",
+  image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/61LULmvXjfL._SL1500_.jpg",
+  specs: [
+    ["Layout: ", "81-key compact tenkeyless design"],
+    ["Switches: ", "Hot-swappable Linear Red switches rated for 50 million clicks"],
+    ["Build: ", "Double-injection keycaps with adjustable legs"],
+    ["Connectivity: ", "Wired USB with 1.5m braided cable"],
+    ["Backlighting: ", "Rainbow backlighting with 11 lighting modes"],
+    ["Performance: ", "Full N-Key Rollover and anti-ghosting"],
+    ["Features: ", "Multifunction volume/brightness knob and 12 multimedia keys"],
+    ["Compatibility: ", "Windows, macOS and iOS"]
+  ],
+  rating: 4.4,
+  about: "A compact wired mechanical gaming keyboard featuring smooth hot-swappable Linear Red switches, dynamic rainbow lighting, a multifunction knob and full-key anti-ghosting.",
+  price: "₹1,899",
+  link: "https://link.amazon/B08OvsJ4e"
 }
 
 ];
